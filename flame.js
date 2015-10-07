@@ -1,5 +1,5 @@
-var firstName = "Apeksha";
-var secondName = "Nitin";
+var firstName = "Anju";
+var secondName = "Ashok";
 
 var MAGICWORD = 'FLAME';
 var MAGICWORD_LENGTH = 5;
