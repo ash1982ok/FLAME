@@ -1,7 +1,13 @@
 
 var MAGICWORD = 'FLAME';
 var MAGICWORD_LENGTH = 5;
-
+var FLAME_OBJ = {
+	F:'Friend',
+	L:'Lover',
+	A:'Attraction',
+	M:'Marriage',
+	E:'Enemy'
+}
 function stripCharacters(firstName,secondName) {
 	
 	firstName = firstName.toUpperCase();
@@ -61,7 +67,7 @@ function FlameButtonHandler(event){
 	var FLAME_VALUE = calculateFLAME(strippedName.length);
 	
 	var result = document.getElementById('result');
-	result.innerHTML = FLAME_VALUE;
+	result.innerHTML = FLAME_OBJ[FLAME_VALUE];
 }
 function init(){
 	var button = document.getElementById('calculate');
