@@ -1,5 +1,3 @@
-var firstName = "Anju";
-var secondName = "Ashok";
 
 var MAGICWORD = 'FLAME';
 var MAGICWORD_LENGTH = 5;
@@ -48,7 +46,26 @@ function calculateFLAME(count){
 	}
 	
 	console.log("Your Result: " + magicWord);
+	return magicWord;
 }
 
-var resultantWord = stripCharacters(firstName,secondName);
-calculateFLAME(resultantWord.length);
+function FlameButtonHandler(event){
+	var firstName = document.getElementById('firstName').value;
+	var secondName = document.getElementById('secondName').value;
+	
+	if(firstName.trim() == "" || secondName.trim() == ""){
+		alert('Please enter valid values in name textfields');
+		return;
+	}
+	var strippedName = stripCharacters(firstName,secondName);
+	var FLAME_VALUE = calculateFLAME(strippedName.length);
+	
+	var result = document.getElementById('result');
+	result.innerHTML = FLAME_VALUE;
+}
+function init(){
+	var button = document.getElementById('calculate');
+	button.onclick = FlameButtonHandler;
+}
+
+window.onload = init();
