@@ -43,7 +43,7 @@ function storeToFirebase(firstName,secondName,result){
 			'result':result
 		};
 		
-	FIREBASE_REF.set(obj);
+	FIREBASE_REF.push(obj);
 }
 
 function calculateFLAME(count){
