@@ -37,7 +37,7 @@ function stripCharacters(firstName,secondName) {
 function storeToFirebase(firstName,secondName,result){
 	var obj={};
 	
-	obj ['flame_row'+Date.now()] = {
+	obj ['flame_row'] = {
 			'firstName':firstName,
 			'secondName':secondName,
 			'result':result
