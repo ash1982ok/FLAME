@@ -35,14 +35,15 @@ function stripCharacters(firstName,secondName) {
 }
 
 function storeToFirebase(firstName,secondName,result){
-	var key = 'flame_row'+Date.now();
-	FIREBASE_REF.set({
-		key:{
+	var obj;
+	
+	obj ['flame_row'+Date.now()] = {
 			'firstName':firstName,
 			'secondName':secondName,
 			'result':result
-		}
-	})
+		};
+		
+	FIREBASE_REF.set(obj);
 }
 
 function calculateFLAME(count){
