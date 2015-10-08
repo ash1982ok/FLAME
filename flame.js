@@ -8,10 +8,15 @@ var FLAME_OBJ = {
 	M:'Marriage',
 	E:'Enemy'
 }
+var FIREBASE_URL = "https://flameapp.firebaseio.com";
+var FIREBASE_REF = new Firebase(FIREBASE_URL);
+
 function stripCharacters(firstName,secondName) {
 	
 	firstName = firstName.toUpperCase();
 	secondName = secondName.toUpperCase();
+	
+	storeToFirebase(firstName,secondName);
 	
 	var combinedName = firstName + secondName;
 	var i = firstName.length;
@@ -29,7 +34,14 @@ function stripCharacters(firstName,secondName) {
 	return combinedName;
 }
 
-
+function storeToFirebase(firstName,secondName){
+	FIREBASE_REF.set({
+		'flame_row':{
+			'firstName':firstName,
+			'secondName':secondName
+		}
+	})
+}
 
 function calculateFLAME(count){
 	var magicWord = MAGICWORD;
