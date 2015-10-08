@@ -4,7 +4,7 @@ var MAGICWORD_LENGTH = 5;
 var FLAME_OBJ = {
 	F:'Friend',
 	L:'Lover',
-	A:'Attraction',
+	A:'Affair',
 	M:'Marriage',
 	E:'Enemy'
 }
