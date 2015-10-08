@@ -10,3 +10,7 @@
 button#calculate {
     margin-bottom: 15px;
 }
+
+#resultGroup{
+  display: none;
+}

@@ -3,7 +3,7 @@ var MAGICWORD = 'FLAME';
 var MAGICWORD_LENGTH = 5;
 var FLAME_OBJ = {
 	F:'Friend',
-	L:'Lover',
+	L:'Love',
 	A:'Affair',
 	M:'Marriage',
 	E:'Enemy'
@@ -58,6 +58,8 @@ function calculateFLAME(count){
 function FlameButtonHandler(event){
 	var firstName = document.getElementById('firstName').value;
 	var secondName = document.getElementById('secondName').value;
+	var result = document.getElementById('result');
+	var resultGroup = document.getElementById('resultGroup');
 	
 	if(firstName.trim() == "" || secondName.trim() == ""){
 		alert('Please enter valid values in name textfields');
@@ -66,7 +68,7 @@ function FlameButtonHandler(event){
 	var strippedName = stripCharacters(firstName,secondName);
 	var FLAME_VALUE = calculateFLAME(strippedName.length);
 	
-	var result = document.getElementById('result');
+	resultGroup.style.display = 'block';
 	result.innerHTML = FLAME_OBJ[FLAME_VALUE];
 }
 function init(){
