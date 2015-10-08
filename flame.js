@@ -16,7 +16,7 @@ function stripCharacters(firstName,secondName) {
 	firstName = firstName.toUpperCase();
 	secondName = secondName.toUpperCase();
 	
-	storeToFirebase(firstName,secondName);
+	
 	
 	var combinedName = firstName + secondName;
 	var i = firstName.length;
@@ -34,11 +34,13 @@ function stripCharacters(firstName,secondName) {
 	return combinedName;
 }
 
-function storeToFirebase(firstName,secondName){
+function storeToFirebase(firstName,secondName,result){
+	var key = 'flame_row'+Date.now();
 	FIREBASE_REF.set({
-		'flame_row':{
+		key:{
 			'firstName':firstName,
-			'secondName':secondName
+			'secondName':secondName,
+			'result':result
 		}
 	})
 }
@@ -64,6 +66,7 @@ function calculateFLAME(count){
 	}
 	
 	console.log("Your Result: " + magicWord);
+	
 	return magicWord;
 }
 
@@ -82,6 +85,8 @@ function FlameButtonHandler(event){
 	
 	resultGroup.style.display = 'block';
 	result.innerHTML = FLAME_OBJ[FLAME_VALUE];
+	
+	storeToFirebase(firstName,secondName,FLAME_OBJ[FLAME_VALUE]);
 }
 function init(){
 	var button = document.getElementById('calculate');
