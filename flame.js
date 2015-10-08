@@ -76,4 +76,4 @@ function init(){
 	button.onclick = FlameButtonHandler;
 }
 
-window.onload = init();
+window.onload = init;
